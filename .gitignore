@@ -364,3 +364,6 @@ FodyWeavers.xsd
 
 # JetBrains IDEs
 .idea/
+
+# Local dev-specific build props overrides
+local.build.props

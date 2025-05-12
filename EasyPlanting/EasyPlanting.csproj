@@ -75,7 +75,7 @@
         <PackageReference Include="LavaGang.MelonLoader" Version="0.7.0"/>
     </ItemGroup>
 
-    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(CopyToDeploymentPath)' == 'true'">
         <Exec Command="xcopy /y /d  &quot;$(TargetPath)&quot; &quot;D:\SteamLibrary\steamapps\common\Schedule I - Mono\Mods&quot;"/>
     </Target>
 

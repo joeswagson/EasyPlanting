@@ -1,16 +1,19 @@
 ﻿using EasyPlanting;
 using EasyPlanting.Product;
-using EasyPlanting.Utils;
 using MelonLoader;
-using MelonLoader.Utils;
+using UnityEngine;
+
+#if IL2CPP
+using Il2CppScheduleOne;
+using Il2CppScheduleOne.DevUtilities;
+using Il2CppScheduleOne.Growing;
+using Il2CppScheduleOne.PlayerTasks;
+#elif MONO
 using ScheduleOne;
 using ScheduleOne.DevUtilities;
-using ScheduleOne.Dragging;
 using ScheduleOne.Growing;
 using ScheduleOne.PlayerTasks;
-using ScheduleOne.UI;
-using System.Reflection;
-using UnityEngine;
+#endif
 
 
 [assembly: MelonInfo(typeof(ModMain), BuildInfo.ProductName, BuildInfo.ProductVersion, BuildInfo.ProductAuthor, BuildInfo.ProductLink)]

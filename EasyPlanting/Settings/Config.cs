@@ -1,7 +1,5 @@
 ﻿using EasyPlanting.Utils;
 using MelonLoader;
-using MelonLoader.Utils;
-using Newtonsoft.Json;
 using System.Reflection;
 
 namespace EasyPlanting

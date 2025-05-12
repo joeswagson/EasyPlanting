@@ -1,10 +1,14 @@
 ﻿using HarmonyLib;
+
+#if IL2CPP
+using Il2CppScheduleOne.PlayerTasks;
+#elif MONO
+using ScheduleOne;
+using ScheduleOne.DevUtilities;
+using ScheduleOne.Growing;
+using ScheduleOne.ObjectScripts.Soil;
 using ScheduleOne.PlayerTasks;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+#endif
 
 namespace EasyPlanting.Patches
 {

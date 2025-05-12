@@ -1,10 +1,20 @@
 ﻿using MelonLoader;
-using ScheduleOne.DevUtilities;
-using ScheduleOne.UI;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
+
+#if IL2CPP
+using Il2CppScheduleOne.DevUtilities;
+using Il2CppScheduleOne.UI;
+#elif MONO
+using ScheduleOne;
+using ScheduleOne.DevUtilities;
+using ScheduleOne.Growing;
+using ScheduleOne.ItemFramework;
+using ScheduleOne.ObjectScripts;
+using ScheduleOne.ObjectScripts.Soil;
+using ScheduleOne.PlayerTasks;
+using ScheduleOne.PlayerTasks.Tasks;
+using ScheduleOne.UI;
+#endif
 
 namespace EasyPlanting.Utils
 {

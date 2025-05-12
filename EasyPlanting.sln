@@ -7,14 +7,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyPlanting", "EasyPlantin
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
+		Mono|Any CPU = Mono|Any CPU
+		IL2CPP|Any CPU = IL2CPP|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B03FA9F3-A62E-4031-A510-7E06AAD523BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B03FA9F3-A62E-4031-A510-7E06AAD523BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B03FA9F3-A62E-4031-A510-7E06AAD523BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B03FA9F3-A62E-4031-A510-7E06AAD523BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B03FA9F3-A62E-4031-A510-7E06AAD523BB}.Mono|Any CPU.ActiveCfg = Mono|Any CPU
+		{B03FA9F3-A62E-4031-A510-7E06AAD523BB}.Mono|Any CPU.Build.0 = Mono|Any CPU
+		{B03FA9F3-A62E-4031-A510-7E06AAD523BB}.IL2CPP|Any CPU.ActiveCfg = IL2CPP|Any CPU
+		{B03FA9F3-A62E-4031-A510-7E06AAD523BB}.IL2CPP|Any CPU.Build.0 = IL2CPP|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,11 +3,7 @@
 #if IL2CPP
 using Il2CppScheduleOne.ObjectScripts.Soil;
 #elif MONO
-using ScheduleOne;
-using ScheduleOne.DevUtilities;
-using ScheduleOne.Growing;
 using ScheduleOne.ObjectScripts.Soil;
-using ScheduleOne.PlayerTasks;
 #endif
 
 namespace EasyPlanting.Patches

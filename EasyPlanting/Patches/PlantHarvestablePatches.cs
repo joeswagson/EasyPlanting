@@ -5,11 +5,7 @@ using UnityEngine;
 #if IL2CPP
 using Il2CppScheduleOne.Growing;
 #elif MONO
-using ScheduleOne;
-using ScheduleOne.DevUtilities;
 using ScheduleOne.Growing;
-using ScheduleOne.ObjectScripts.Soil;
-using ScheduleOne.PlayerTasks;
 #endif
 
 namespace EasyPlanting.Patches

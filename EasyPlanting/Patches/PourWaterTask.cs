@@ -6,12 +6,8 @@ using Il2CppScheduleOne.ObjectScripts;
 using Il2CppScheduleOne.PlayerTasks;
 using Il2CppScheduleOne.PlayerTasks.Tasks;
 #elif MONO
-using ScheduleOne;
-using ScheduleOne.DevUtilities;
-using ScheduleOne.Growing;
 using ScheduleOne.ItemFramework;
 using ScheduleOne.ObjectScripts;
-using ScheduleOne.ObjectScripts.Soil;
 using ScheduleOne.PlayerTasks;
 using ScheduleOne.PlayerTasks.Tasks;
 #endif

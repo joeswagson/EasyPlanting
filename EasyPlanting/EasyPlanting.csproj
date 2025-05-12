@@ -35,18 +35,10 @@
     <!-- IL2CPP Specific Dependencies -->
     <ItemGroup Condition="'$(Configuration)' == 'IL2CPP'">
         <Reference Include="$(Il2CppAssembliesPath)\Assembly-CSharp.dll"/>
-        <Reference Include="$(Il2CppAssembliesPath)\Il2CppFishNet.Runtime.dll"/>
         <Reference Include="$(Il2CppAssembliesPath)\Il2Cppmscorlib.dll"/>
-        <Reference Include="$(Il2CppAssembliesPath)\Il2CpNewtonsoft.Json.dll"/>
-        <Reference Include="$(Il2CppAssembliesPath)\UnityEngine.dll"/>
         <Reference Include="$(Il2CppAssembliesPath)\UnityEngine.CoreModule.dll"/>
         <Reference Include="$(Il2CppAssembliesPath)\UnityEngine.ImageConversionModule.dll"/>
-        <Reference Include="$(Il2CppAssembliesPath)\UnityEngine.InputLegacyModule.dll"/>
-        <Reference Include="$(Il2CppAssembliesPath)\UnityEngine.JSONSerializeModule.dll"/>
         <Reference Include="$(Il2CppAssembliesPath)\UnityEngine.PhysicsModule.dll"/>
-        <Reference Include="$(Il2CppAssembliesPath)\UnityEngine.TextRenderingModule.dll"/>
-        <Reference Include="$(Il2CppAssembliesPath)\UnityEngine.UI.dll"/>
-        <Reference Include="$(Il2CppAssembliesPath)\UnityEngine.UIModule.dll"/>
 
         <Reference Include="$(MelonLoaderAssembliesPath)\Il2CppInterop.Common.dll"/>
         <Reference Include="$(MelonLoaderAssembliesPath)\Il2CppInterop.Generator.dll"/>
@@ -57,17 +49,9 @@
     <!-- Mono Specific Dependencies -->
     <ItemGroup Condition="'$(Configuration)' == 'Mono'">
         <Reference Include="$(MonoAssembliesPath)\Assembly-CSharp.dll"/>
-        <Reference Include="$(MonoAssembliesPath)\FishNet.Runtime.dll"/>
-        <Reference Include="$(MonoAssembliesPath)\Newtonsoft.Json.dll"/>
-        <Reference Include="$(MonoAssembliesPath)\UnityEngine.dll"/>
         <Reference Include="$(MonoAssembliesPath)\UnityEngine.CoreModule.dll"/>
         <Reference Include="$(MonoAssembliesPath)\UnityEngine.ImageConversionModule.dll"/>
-        <Reference Include="$(MonoAssembliesPath)\UnityEngine.InputLegacyModule.dll"/>
-        <Reference Include="$(MonoAssembliesPath)\UnityEngine.JSONSerializeModule.dll"/>
         <Reference Include="$(MonoAssembliesPath)\UnityEngine.PhysicsModule.dll"/>
-        <Reference Include="$(MonoAssembliesPath)\UnityEngine.TextRenderingModule.dll"/>
-        <Reference Include="$(MonoAssembliesPath)\UnityEngine.UI.dll"/>
-        <Reference Include="$(MonoAssembliesPath)\UnityEngine.UIModule.dll"/>
     </ItemGroup>
 
     <ItemGroup>

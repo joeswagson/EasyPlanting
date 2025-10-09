@@ -1,10 +1,13 @@
 ﻿using MelonLoader;
+using UnityEngine;
+
+#if IL2CPP
+using Il2CppScheduleOne.DevUtilities;
+using Il2CppScheduleOne.UI;
+#elif MONO
 using ScheduleOne.DevUtilities;
 using ScheduleOne.UI;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using UnityEngine;
+#endif
 
 namespace EasyPlanting.Utils
 {

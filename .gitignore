@@ -361,3 +361,9 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# JetBrains IDEs
+.idea/
+
+# Local dev-specific build props overrides
+local.build.props

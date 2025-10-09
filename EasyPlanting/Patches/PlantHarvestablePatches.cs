@@ -1,10 +1,12 @@
 ﻿using HarmonyLib;
 using MelonLoader;
-using ScheduleOne.Growing;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
+
+#if IL2CPP
+using Il2CppScheduleOne.Growing;
+#elif MONO
+using ScheduleOne.Growing;
+#endif
 
 namespace EasyPlanting.Patches
 {

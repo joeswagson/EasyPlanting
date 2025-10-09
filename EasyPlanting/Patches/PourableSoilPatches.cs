@@ -1,12 +1,13 @@
 ﻿using HarmonyLib;
+
+#if IL2CPP
+using Il2CppScheduleOne.ObjectScripts.Soil;
+#elif MONO
 using ScheduleOne.ObjectScripts.Soil;
-using System;
-using System.Collections.Generic;
-using System.Text;
+#endif
 
 namespace EasyPlanting.Patches
 {
-
     [HarmonyPatch(typeof(PourableSoil))]
     public class PourableSoilPatches
     {

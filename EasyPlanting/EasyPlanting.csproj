@@ -1,62 +1,66 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <RunPostBuildEvent>Always</RunPostBuildEvent>
-    <LangVersion>10.0</LangVersion>
-  </PropertyGroup>
+    <PropertyGroup>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RunPostBuildEvent>Always</RunPostBuildEvent>
+        <LangVersion>10.0</LangVersion>
+        <Version>$(Version)</Version>
+        <Configurations>IL2CPP;Mono</Configurations>
+        <Platforms>AnyCPU</Platforms>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Resources\IconBad.png" />
-    <None Remove="Resources\IconGood.png" />
-    <None Remove="Resources\IconWarn.png" />
-  </ItemGroup>
+    <ItemGroup>
+        <None Remove="Resources\IconBad.png"/>
+        <None Remove="Resources\IconGood.png"/>
+        <None Remove="Resources\IconWarn.png"/>
+        <EmbeddedResource Include="Resources\IconBad.png"/>
+        <EmbeddedResource Include="Resources\IconGood.png"/>
+        <EmbeddedResource Include="Resources\IconWarn.png"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\IconBad.png" />
-    <EmbeddedResource Include="Resources\IconGood.png" />
-    <EmbeddedResource Include="Resources\IconWarn.png" />
-  </ItemGroup>
+    <!-- Imports build properties for developers using Thunderstore Mod Manager. -->
+    <Import Project="../thunderstore.build.props" Condition="Exists('../thunderstore.build.props')"/>
+    <!-- Imports dev-specific build props directories. -->
+    <Import Project="../local.build.props" Condition="Exists('../local.build.props')"/>
 
-  <ItemGroup>
-    <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.2" PrivateAssets="all" />
-    <Reference Include="0Harmony">
-      <HintPath>D:\SteamLibrary\steamapps\common\Schedule I - Mono\MelonLoader\net6\0Harmony.dll</HintPath>
-    </Reference>
-    <Reference Include="D:\SteamLibrary\steamapps\common\Schedule I - Mono\Schedule I_Data\Managed\Assembly-CSharp.dll" Publicize="true" />
-    <Reference Include="FishNet.Runtime">
-      <HintPath>D:\SteamLibrary\steamapps\common\Schedule I - Mono\Schedule I_Data\Managed\FishNet.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="MelonLoader">
-      <HintPath>D:\SteamLibrary\steamapps\common\Schedule I - Mono\MelonLoader\net35\MelonLoader.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>D:\SteamLibrary\steamapps\common\Schedule I - Mono\MelonLoader\net6\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine">
-      <HintPath>D:\SteamLibrary\steamapps\common\Schedule I - Mono\Schedule I_Data\Managed\UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.AssetBundleModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\Schedule I - Mono\Schedule I_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.AudioModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\Schedule I - Mono\Schedule I_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\Schedule I - Mono\Schedule I_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.ImageConversionModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\Schedule I - Mono\Schedule I_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.PhysicsModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\Schedule I - Mono\Schedule I_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
-    </Reference>
-  </ItemGroup>
+    <PropertyGroup Condition="'$(Configuration)' == 'IL2CPP'">
+        <TargetFramework>net6.0</TargetFramework>
+    </PropertyGroup>
 
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy /y /d  &quot;$(TargetPath)&quot; &quot;D:\SteamLibrary\steamapps\common\Schedule I - Mono\Mods&quot;" />
-  </Target>
+    <PropertyGroup Condition="'$(Configuration)' == 'Mono'">
+        <TargetFramework>netstandard2.1</TargetFramework>
+    </PropertyGroup>
+
+    <!-- IL2CPP Specific Dependencies -->
+    <ItemGroup Condition="'$(Configuration)' == 'IL2CPP'">
+        <Reference Include="$(Il2CppAssembliesPath)\Assembly-CSharp.dll"/>
+        <Reference Include="$(Il2CppAssembliesPath)\Il2Cppmscorlib.dll"/>
+        <Reference Include="$(Il2CppAssembliesPath)\UnityEngine.CoreModule.dll"/>
+        <Reference Include="$(Il2CppAssembliesPath)\UnityEngine.ImageConversionModule.dll"/>
+        <Reference Include="$(Il2CppAssembliesPath)\UnityEngine.PhysicsModule.dll"/>
+
+        <Reference Include="$(MelonLoaderAssembliesPath)\Il2CppInterop.Common.dll"/>
+        <Reference Include="$(MelonLoaderAssembliesPath)\Il2CppInterop.Generator.dll"/>
+        <Reference Include="$(MelonLoaderAssembliesPath)\Il2CppInterop.HarmonySupport.dll"/>
+        <Reference Include="$(MelonLoaderAssembliesPath)\Il2CppInterop.Runtime.dll"/>
+    </ItemGroup>
+
+    <!-- Mono Specific Dependencies -->
+    <ItemGroup Condition="'$(Configuration)' == 'Mono'">
+        <Reference Include="$(MonoAssembliesPath)\Assembly-CSharp.dll"/>
+        <Reference Include="$(MonoAssembliesPath)\UnityEngine.CoreModule.dll"/>
+        <Reference Include="$(MonoAssembliesPath)\UnityEngine.ImageConversionModule.dll"/>
+        <Reference Include="$(MonoAssembliesPath)\UnityEngine.PhysicsModule.dll"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="HarmonyX" Version="2.14.0"/>
+        <PackageReference Include="LavaGang.MelonLoader" Version="0.7.0"/>
+    </ItemGroup>
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(CopyToDeploymentPath)' == 'true'">
+        <Exec Command="xcopy /y /d  &quot;$(TargetPath)&quot; &quot;D:\SteamLibrary\steamapps\common\Schedule I - Mono\Mods&quot;"/>
+    </Target>
 
 </Project>
